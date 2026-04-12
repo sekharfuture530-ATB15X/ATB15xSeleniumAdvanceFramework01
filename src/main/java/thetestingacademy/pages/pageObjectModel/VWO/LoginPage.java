@@ -2,7 +2,6 @@ package thetestingacademy.pages.pageObjectModel.VWO;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class LoginPage {
 
@@ -18,34 +17,27 @@ public class LoginPage {
     private By loginButton = By.id("js-login-btn");
     private By errorMessage = By.className("notification-box-description");
 
+
     // Actions
 
-    public void loginToVWOInvalidCreds(String usr,String pwd) {
+    public String loginToVWOInvalidCreds(String usr, String pwd) {
 
         driver.findElement(userName).sendKeys(usr);
         driver.findElement(password).sendKeys(pwd);
         driver.findElement(loginButton).click();
-        driver.findElement(errorMessage).getText();
 
-//        driver.get("https://app.vwo.com/#/login");
+        String error = driver.findElement(errorMessage).getText();
+
+        return error;
     }
 
-//    public void enterEmail(String email) {
-//        driver.findElement(emailInput).clear();
-//        driver.findElement(emailInput).sendKeys(email);
-//    }
-//
-//    public void enterPassword(String password) {
-//        driver.findElement(passwordInput).clear();
-//        driver.findElement(passwordInput).sendKeys(password);
-//    }
-//
-//    public void clickLogin() {
-//        driver.findElement(loginButton).click();
-//    }
-//
-//    public String getErrorMessage() {
-//        WebElement error = driver.findElement(errorMessage);
-//        return error.getText();
-//    }
+    public String loginToVWOvalidCreds(String usr, String pwd) {
+
+        driver.findElement(userName).sendKeys(usr);
+        driver.findElement(password).sendKeys(pwd);
+        driver.findElement(loginButton).click();
+
+        return usr;
+    }
+
 }

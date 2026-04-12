@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="VWO Suite">
+
+    <test name="Login Test">
+        <classes>
+            <class name="thetestingacademy.tests.VWO.TestVWOLogin__Normal_POM">
+                <methods>
+                    <include name="test_negative_VWO_login"/>
+                    <include name="test_positive_VWO_login"/>
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

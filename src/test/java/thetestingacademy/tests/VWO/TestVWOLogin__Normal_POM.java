@@ -6,33 +6,67 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import thetestingacademy.pages.pageObjectModel.VWO.DashboardPage;
 import thetestingacademy.pages.pageObjectModel.VWO.LoginPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 public class TestVWOLogin__Normal_POM {
 
+    @Owner("Sekhar")
+    @Description("Verify that invalid email and password shows error message")
+    @Test
+    public void test_negative_VWO_login() {
+
+        // Driver setup
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://app.vwo.com/#/login");
+        driver.manage().window().maximize();
+
+        // Page Object
+        LoginPage loginPage = new LoginPage(driver);
+
+        // Action
+        String error_msg = loginPage.loginToVWOInvalidCreds(
+                "Sekhar@gmail.com",
+                "password"
+        );
+
+        // Assertions
+        assertThat(error_msg)
+                .isNotNull()
+                .isNotBlank()
+                .isNotEmpty();
+
+        Assert.assertEquals(
+                error_msg,
+                "Your email, password, IP address or location did not match"
+        );
+
+        // Cleanup
+        driver.quit();
+    }
 
     @Owner("Sekhar")
-    @Description("Verify that the invalid email and password and show only error messages")
+    @Description("Verify that valid email and password shows error message")
     @Test
-    public void test_negative_VWO_login(){
+    public void test_positive_VWO_login() {
 
-        // Driver Manager Code -1 D
-
+        // Driver setup
         WebDriver driver = new ChromeDriver();
+        driver.get("https://app.vwo.com/#/login");
+        driver.manage().window().maximize();
 
-        // Page class code -(POM code) - 2 L
+        // Page Object
+        DashboardPage dashPage = new DashboardPage(driver);
 
-        LoginPage loginpage = new LoginPage(driver);
-        String error_msg =loginpage.loginToVWOInvalidCreds("Sekhar@gmail.com","password");
-
-        // Assertatoion -3 V
-
-        assertThat(error_msg).isNotNull().isNotBlank().isNotEmpty();
-        Assert.assertEquals(error_msg,"Your email, password, IP address or location did not match");
+        // Action
+        dashPage.loggedInUserName();
 
 
+
+
+        // Cleanup
+        driver.quit();
     }
 }
