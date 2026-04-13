@@ -1,8 +1,8 @@
 package thetestingacademy.tests.VWO;
-import thetestingacademy.pages.pageObjectModel.VWO.DashboardPage;
-//import com.thetestingacademy.pages.pageObjectModel.VWO.DashboardPage;
-import thetestingacademy.pages.pageObjectModel.VWO.LoginPage;
-//import com.thetestingacademy.pages.pageObjectModel.VWO.LoginPage;
+import thetestingacademy.pages.pageObjectModel.VWO.normal_POM.DashboardPage;
+//import com.thetestingacademy.pages.pageObjectModel.VWO.normal_POM.DashboardPage;
+import thetestingacademy.pages.pageObjectModel.VWO.normal_POM.LoginPage;
+//import com.thetestingacademy.pages.pageObjectModel.VWO.normal_POM.LoginPage;
 import io.qameta.allure.Description;
 import io.qameta.allure.Owner;
 import org.openqa.selenium.WebDriver;
