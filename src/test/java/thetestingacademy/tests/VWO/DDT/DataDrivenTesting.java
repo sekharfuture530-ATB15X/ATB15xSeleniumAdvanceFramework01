@@ -1,5 +1,6 @@
 package thetestingacademy.tests.VWO.DDT;
 
+import thetestingacademy.baseTest.CommonToAllTest;
 import thetestingacademy.pages.pageObjectModel.VWO.improved_POM.LoginPage;
 import org.testng.annotations.Test;
 

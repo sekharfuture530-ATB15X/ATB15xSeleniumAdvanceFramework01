@@ -13,7 +13,8 @@ public class PropertiesReader {
 
         String user_dir = System.getProperty("user.dir");
 //        C:\Users\sri\IdeaProjects\ATB15xSeleniumAdvanceFramework01
-        String file_path =user_dir+"src/main/resources/data.properties";
+//        String file_path =user_dir+"src/main/resources/data.properties";
+        String file_path = System.getProperty("user.dir") + "\\src\\main\\resources\\data.properties";
 
         try {
             FileInputStream fileInputStream = new FileInputStream(file_path);
